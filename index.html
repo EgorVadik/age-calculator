@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/images/favicon-32x32.png"
+        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap"
+            rel="stylesheet"
+        />
+
+        <title>Frontend Mentor | Age calculator app</title>
+
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
+            defer
+        ></script>
+        <script src="script.js" defer></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        fontFamily: {
+                            poppins: ['Poppins', 'sans-serif'],
+                        },
+                        colors: {
+                            purple: 'hsl(259, 100%, 65%)',
+                            lightRed: 'hsl(0, 100%, 67%)',
+                            White: 'hsl(0, 0%, 100%)',
+                            offWhite: 'hsl(0, 0%, 94%)',
+                            lightGrey: 'hsl(0, 0%, 86%)',
+                            smokeyGrey: 'hsl(0, 1%, 44%)',
+                            offBlack: 'hsl(0, 0%, 8%)',
+                        },
+                        fontSize: {
+                            inputs: '32px',
+                        },
+                    },
+                },
+            }
+        </script>
+    </head>
+    <body
+        class="grid min-h-screen content-center justify-center bg-offWhite font-poppins"
+    >
+        <main
+            class="bg-white rounded-br-[150px] rounded-t-xl rounded-bl-xl p-10 w-[370px] md:w-[550px]"
+        >
+            <div class="flex text-xl md:text-inputs gap-5 font-bold">
+                <div class="grid relative">
+                    <label
+                        id="day-label"
+                        for="day"
+                        class="font-normal text-sm uppercase tracking-widest mb-2 text-smokeyGrey"
+                        >Day</label
+                    >
+                    <input
+                        type="text"
+                        id="day"
+                        placeholder="DD"
+                        class="border rounded-md w-[88px] md:w-28 focus:outline-none focus:border-purple px-4 py-2 md:py-0"
+                    />
+                    <p
+                        id="valid-day"
+                        class="text-lightRed font-normal w-max text-[10px] italic hidden absolute -bottom-7"
+                    >
+                        Must be a valid day
+                    </p>
+                    <p
+                        id="valid-date"
+                        class="text-lightRed font-normal w-max text-[10px] italic hidden absolute -bottom-7"
+                    >
+                        Must be a valid date
+                    </p>
+                    <p
+                        id="required-day"
+                        class="text-lightRed font-normal w-max text-[10px] italic hidden absolute -bottom-7"
+                    >
+                        This field is required
+                    </p>
+                </div>
+                <div class="grid relative">
+                    <label
+                        id="month-label"
+                        for="month"
+                        class="font-normal text-sm uppercase tracking-widest mb-2 text-smokeyGrey"
+                        >Month</label
+                    >
+                    <input
+                        type="text"
+                        id="month"
+                        placeholder="MM"
+                        class="border rounded-md w-[88px] md:w-28 focus:outline-none focus:border-purple px-4 py-2 md:py-0"
+                    />
+                    <p
+                        id="valid-month"
+                        class="text-lightRed font-normal w-max text-[10px] italic hidden absolute -bottom-7"
+                    >
+                        Must be a valid month
+                    </p>
+                    <p
+                        id="required-month"
+                        class="text-lightRed font-normal w-max text-[10px] italic hidden absolute -bottom-7"
+                    >
+                        This field is required
+                    </p>
+                </div>
+                <div class="grid relative">
+                    <label
+                        id="year-label"
+                        for="year"
+                        class="font-normal text-sm uppercase tracking-widest mb-2 text-smokeyGrey"
+                        >Year</label
+                    >
+                    <input
+                        type="text"
+                        id="year"
+                        placeholder="YYYY"
+                        class="border rounded-md w-[88px] md:w-28 focus:outline-none focus:border-purple px-4 py-2 md:py-0"
+                    />
+                    <p
+                        id="pastErr"
+                        class="text-lightRed font-normal w-max text-[10px] italic hidden absolute -bottom-7"
+                    >
+                        Must be in the past
+                    </p>
+                    <p
+                        id="required-year"
+                        class="text-lightRed font-normal w-max text-[10px] italic hidden absolute -bottom-7"
+                    >
+                        This field is required
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center my-10 md:my-0 relative">
+                <div class="w-full border-t"></div>
+                <button
+                    id="btn"
+                    class="md:bg-black bg-purple rounded-full p-4 hover:bg-purple absolute md:relative left-1/2 transform -translate-x-1/2 md:transform-none md:translate-x-0 md:left-0"
+                >
+                    <img
+                        src="assets/images/icon-arrow.svg"
+                        alt="Arrow icon"
+                        class="w-8"
+                    />
+                </button>
+            </div>
+            <div class="text-5xl md:text-6xl font-extrabold italic">
+                <div><span id="years" class="text-purple">--</span> years</div>
+                <div>
+                    <span id="months" class="text-purple">--</span> months
+                </div>
+                <div><span id="days" class="text-purple">--</span> days</div>
+            </div>
+        </main>
+    </body>
+</html>
